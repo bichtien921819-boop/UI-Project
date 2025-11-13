@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>UI Pattern Library - Home</title>
-        <link rel="stylesheet" href="main.css">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;700&family=Lato:wght@400;700&family=Poppins:wght@400;600&family=Montserrat:wght@400;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-        <!-- Font Awesome Icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Pattern Library - Home</title>
+    <link rel="stylesheet" href="main.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;700&family=Lato:wght@400;700&family=Poppins:wght@400;600&family=Montserrat:wght@400;600&family=Nunito:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
 
-    <body>
-        <!-- HEADER  -->
-        <header>
-            <h1>Pattern Library - Group 5</h1>
-        </header> 
+  <body>
+    <!-- HEADER  -->
+    <header>
+      <h1>Pattern Library - Group 5</h1>
+    </header>
 
-        <!-- NAVIGATION -->
-        <!-- <nav class="nav-container">
+    <!-- NAVIGATION -->
+    <!-- <nav class="nav-container">
             <ul class="tab-container">
                 <li class="tab"><a href="#home">Home</a></li>
                 <li class="tab"><a href="#colors">Colors</a></li>
@@ -29,295 +35,754 @@
             </ul>
         </nav> -->
 
-        <nav class="nav-container">
-            <ul class="tab-container">
-              <li class="tab"><a href="#" onclick="showSection('home', event)">Home</a></li>
-              <li class="tab"><a href="#" onclick="showSection('colors', event)">Colors</a></li>
-              <li class="tab"><a href="#" onclick="showSection('typography', event)">Typography</a></li>
-              <li class="tab"><a href="#" onclick="showSection('layouts', event)">Layouts</a></li>
-              <li class="tab"><a href="#" onclick="showSection('components', event)">Components</a></li>
-              <li class="tab"><a href="#" onclick="showSection('data-visual', event)">Data Visualization</a></li>
-            </ul>
-        </nav>
-          
+    <nav class="nav-container">
+      <ul class="tab-container">
+        <li class="tab">
+          <a href="#" onclick="showSection('home', event)">Home</a>
+        </li>
+        <li class="tab">
+          <a href="#" onclick="showSection('colors', event)">Colors</a>
+        </li>
+        <li class="tab">
+          <a href="#" onclick="showSection('typography', event)">Typography</a>
+        </li>
+        <li class="tab">
+          <a href="#" onclick="showSection('layouts', event)">Layouts</a>
+        </li>
+        <li class="tab">
+          <a href="#" onclick="showSection('components', event)">Components</a>
+        </li>
+        <li class="tab">
+          <a href="#" onclick="showSection('data-visual', event)"
+            >Data Visualization</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-        <main>
-            <!-- HOME SECTION -->
-            <section id="home" class="content-section active">
-                <h1>Home</h1>
-                <p>Welcome to the UI Pattern Library</p>
-            </section>
-  
+    <main>
+      <!-- HOME SECTION -->
+      <section id="home" class="content-section active">
+        <h1>Home</h1>
+        <p>Welcome to the UI Pattern Library</p>
+      </section>
 
-            <!--------------- COLOR SECTION ------------------>
-            <section id="colors" class="content-section">
-                <div class="wrap">
-                    <header>
-                      <div>
-                        <h1>Color Pattern Library — Dashboard Brand Palette</h1>
-                        <p>Includes swatches, hex & RGB values, usage notes and examples for buttons, backgrounds, and badges.</p>
-                      </div>
-                      <div style="margin-left:auto;text-align:right">
-                        <div class="badge">Project 1 • Color</div>
-                        <div style="font-size:0.85rem;color:var(--text-low)">Last edited: <strong>Now</strong></div>
-                      </div>
-                    </header>
-                
-                    <section class="grid" id="swatches">
-                      <!-- Primary -->
-                      <article class="swatch">
-                        <div class="chip" style="background:var(--brand-primary);
-                            display:flex;align-items:flex-end;padding:10px;color:white;font-weight:600">Primary<br><small style="font-weight:400;opacity:0.9">Brand / CTA</small></div>
-                        <div class="meta"><div><strong>#C41F1F</strong><br><small>rgb(196,31,31)</small></div><div><small>Usage: Primary buttons, highlights, important states</small></div></div>
-                        <div class="examples"><button class="btn">Primary CTA</button><div class="copy" data-code="#C41F1F">Copy HEX</div></div>
-                        <pre>&lt;!-- CSS variable --&gt;
-                --brand-primary: #C41F1F;</pre>
-                      </article>
-                
-                      <!-- Secondary -->
-                      <article class="swatch">
-                        <div class="chip" style="background:var(--brand-secondary);color:white;display:flex;align-items:flex-end;padding:10px;font-weight:600">Secondary<br><small style="font-weight:400;opacity:0.9">Navigation / Panels</small></div>
-                        <div class="meta"><div><strong>#0F172A</strong><br><small>rgb(15,23,42)</small></div><div><small>Usage: Header, nav, dark cards</small></div></div>
-                        <div class="examples"><button class="btn secondary">Nav Button</button><div class="copy" data-code="#0F172A">Copy HEX</div></div>
-                        <pre>&lt;!-- CSS variable --&gt;
-                --brand-secondary: #0F172A;</pre>
-                      </article>
-                
-                      <!-- Accent -->
-                      <article class="swatch">
-                        <div class="chip" style="background:var(--accent);display:flex;align-items:flex-end;padding:10px;font-weight:600">Accent<br><small style="font-weight:400;opacity:0.9">Callouts / Accent</small></div>
-                        <div class="meta"><div><strong>#F2B705</strong><br><small>rgb(242,183,5)</small></div><div><small>Usage: accents, highlights, positive microcopy</small></div></div>
-                        <div class="examples"><div style="padding:10px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#f7c94a);font-weight:600">Accent chip</div><div class="copy" data-code="#F2B705">Copy HEX</div></div>
-                        <pre>&lt;!-- CSS variable --&gt;
-                --accent: #F2B705;</pre>
-                      </article>
-                
-                      <!-- Muted / Text low -->
-                      <article class="swatch">
-                        <div class="chip" style="background:var(--muted);display:flex;align-items:flex-end;padding:10px;color:white;font-weight:600">Muted / Secondary Text</div>
-                        <div class="meta"><div><strong>#6B7280</strong><br><small>rgb(107,114,128)</small></div><div><small>Usage: secondary text, borders, hints</small></div></div>
-                        <div class="examples"><div style="padding:8px;border-radius:8px;background:rgba(11,18,32,0.03);">Placeholder text</div><div class="copy" data-code="#6B7280">Copy HEX</div></div>
-                        <pre>&lt;!-- CSS variable --&gt;
-                --muted: #6B7280;</pre>
-                      </article>
-                
-                      <!-- Background -->
-                      <article class="swatch">
-                        <div class="chip" style="background:var(--bg);display:flex;align-items:flex-end;padding:10px;font-weight:600">Background</div>
-                        <div class="meta"><div><strong>#F5F7FA</strong><br><small>rgb(245,247,250)</small></div><div><small>Usage: page background, subtle panels</small></div></div>
-                        <div class="examples"><div style="padding:10px;border-radius:8px;background:var(--card);box-shadow:0 6px 18px var(--glass);">Card preview</div><div class="copy" data-code="#F5F7FA">Copy HEX</div></div>
-                        <pre>&lt;!-- CSS variable --&gt;
-                --bg: #F5F7FA;</pre>
-                      </article>
-                
-                      <!-- Text High -->
-                      <article class="swatch">
-                        <div class="chip" style="background:linear-gradient(0deg, #0B1220,#0B1220);display:flex;align-items:flex-end;padding:10px;color:white;font-weight:600">Text - High Contrast</div>
-                        <div class="meta"><div><strong>#0B1220</strong><br><small>rgb(11,18,32)</small></div><div><small>Usage: main headings and body text</small></div></div>
-                        <div class="examples"><div style="font-weight:700">Heading example</div><div class="copy" data-code="#0B1220">Copy HEX</div></div>
-                        <pre>&lt;!-- CSS variable --&gt;
-                --text-high: #0B1220;</pre>
-                      </article>
-                
-                      <!-- Semantic colors -->
-                      <article class="swatch">
-                        <div class="chip" style="background:var(--success);display:flex;align-items:flex-end;padding:10px;color:white;font-weight:600">Success</div>
-                        <div class="meta"><div><strong>#16A34A</strong><br><small>rgb(22,163,74)</small></div><div><small>Usage: success badges, positive states</small></div></div>
-                        <div class="examples"><div style="padding:8px;border-radius:8px;background:rgba(22,163,74,0.12);color:var(--success)">Success</div><div class="copy" data-code="#16A34A">Copy HEX</div></div>
-                        <pre>&lt;!-- CSS variable --&gt;
-                --success: #16A34A;</pre>
-                      </article>
-                
-                      <article class="swatch">
-                        <div class="chip" style="background:var(--warning);display:flex;align-items:flex-end;padding:10px;color:white;font-weight:600">Warning</div>
-                        <div class="meta"><div><strong>#F97316</strong><br><small>rgb(249,115,22)</small></div><div><small>Usage: warnings, attention</small></div></div>
-                        <div class="examples"><div style="padding:8px;border-radius:8px;background:rgba(249,115,22,0.12);color:var(--warning)">Warning</div><div class="copy" data-code="#F97316">Copy HEX</div></div>
-                        <pre>&lt;!-- CSS variable --&gt;
-                --warning: #F97316;</pre>
-                      </article>
-                
-                      <article class="swatch">
-                        <div class="chip" style="background:var(--danger);display:flex;align-items:flex-end;padding:10px;color:white;font-weight:600">Danger / Error</div>
-                        <div class="meta"><div><strong>#DC2626</strong><br><small>rgb(220,38,38)</small></div><div><small>Usage: error states, destructive actions</small></div></div>
-                        <div class="examples"><div style="padding:8px;border-radius:8px;background:rgba(220,38,38,0.12);color:var(--danger)">Error</div><div class="copy" data-code="#DC2626">Copy HEX</div></div>
-                        <pre>&lt;!-- CSS variable --&gt;
-                --danger: #DC2626;</pre>
-                      </article>
-                
-                    </section>
-                
-                    <section class="legend" aria-hidden>
-                      <div class="item"><div class="sw" style="background:var(--brand-primary)"></div><div><strong>Primary</strong><div style="font-size:0.85rem;color:var(--text-low)">CTA, highlights</div></div></div>
-                      <div class="item"><div class="sw" style="background:var(--brand-secondary)"></div><div><strong>Secondary</strong><div style="font-size:0.85rem;color:var(--text-low)">Navigation, dark panels</div></div></div>
-                      <div class="item"><div class="sw" style="background:var(--accent)"></div><div><strong>Accent</strong><div style="font-size:0.85rem;color:var(--text-low)">Badges, microcopy</div></div></div>
-                      <div class="item"><div class="sw" style="background:var(--muted)"></div><div><strong>Muted</strong><div style="font-size:0.85rem;color:var(--text-low)">Secondary text</div></div></div>
-                    </section>
-                
-                    <div class="controls">
-                      <label for="themeSelect">Preview theme:</label>
-                      <select id="themeSelect">
-                        <option value="default">Default (light)</option>
-                        <option value="dark">Dark</option>
-                      </select>
-                      <button id="copyAll" class="copy">Copy CSS variables</button>
-                    </div>
-                
-                    <footer>
-                      <strong>Notes / Accessibility</strong>
-                      <ul>
-                        <li>Each color is provided as HEX and RGB — include these variables in your project CSS.</li>
-                        <li>Check contrast for any text placed on top of colored backgrounds (WCAG AA recommended).</li>
-                        <li>Usage examples show recommended contexts (buttons, navs, badges). Modify shades for disabled states and hover interactions.</li>
-                      </ul>
-                    </footer>
-                  </div>
-            </section>
+      <!--------------- COLOR SECTION ------------------>
+      <section id="colors" class="content-section">
+        <div class="wrap">
+          <header>
+            <div>
+              <h1>Color Pattern Library — Dashboard Brand Palette</h1>
+              <p>
+                Includes swatches, hex & RGB values, usage notes and examples
+                for buttons, backgrounds, and badges.
+              </p>
+            </div>
+            <div style="margin-left: auto; text-align: right">
+              <div class="badge">Project 1 • Color</div>
+              <div style="font-size: 0.85rem; color: var(--text-low)">
+                Last edited: <strong>Now</strong>
+              </div>
+            </div>
+          </header>
 
-
-
-            <!-------------- TYPHOGRAPHY SECTION --------------->
-            <section id="typography" class="content-section">
-                <h1>Typography Pattern Library</h1>
-                <p>Select different font styles to preview them below</p>
-
-                <!-- HEADING AREA -->
-                <div class="container">
-                    <div class="font-area heading-section">
-                    <div class="font-header">
-                        <h2>Heading Fonts</h2>
-                        <label for="headingFont">Choose heading font:</label>
-                        <select id="headingFont" onchange="updateFont('headingSample', this.value)">
-                        <option value="Roboto, sans-serif">Roboto</option>
-                        <option value="Open Sans, sans-serif">Open Sans</option>
-                        <option value="Lato, sans-serif">Lato</option>
-                        </select>
-                    </div>
-                    <div class="font-display" id="headingSample" style="font-size:32px; font-family:'Roboto', sans-serif;">
-                        Heading Example : The quick brown fox jumps over the lazy dog
-                    </div>
-                    <p class="note">Font size: 32px | Font weight: 700</p>
-                    </div>
-
-                    <!-- PARAGRAPH AREA -->
-                    <div class="font-area paragraph-section">
-                    <div class="font-header">
-                        <h2>Paragraph Fonts</h2>
-                        <label for="paraFont">Choose paragraph font:</label>
-                        <select id="paraFont" onchange="updateFont('paraSample', this.value)">
-                        <option value="Open Sans, sans-serif">Open Sans</option>
-                        <option value="Roboto Slab, serif">Roboto Slab</option>
-                        <option value="Inter, sans-serif">Inter</option>
-                        </select>
-                    </div>
-                    <div class="font-display" id="paraSample" style="font-size:18px;">
-                        Paragraph Example : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </div>
-                    <p class="note">Font size: 18px | Font weight: 400</p>
-                    </div>
-
-                    <!-- BUTTON TEXT AREA -->
-                    <div class="font-area button-section">
-                    <div class="font-header">
-                        <h2>Button Text</h2>
-                        <label for="btnFont">Choose button font:</label>
-                        <select id="btnFont" onchange="updateFont('btnSample', this.value)">
-                        <option value="Poppins, sans-serif">Poppins</option>
-                        <option value="Montserrat, sans-serif">Montserrat</option>
-                        <option value="Roboto, sans-serif">Roboto</option>
-                        </select>
-                    </div>
-                    <div class="font-display" id="btnSample" style="font-size:16px; text-transform:uppercase;">
-                        BUTTON TEXT EXAMPLE
-                    </div>
-                    <p class="note">Font size: 16px | Font weight: 600 | Uppercase</p>
-                    </div>
-
-                    <!-- SMALL TEXT AREA -->
-                    <div class="font-area smalltext-section">
-                    <div class="font-header">
-                        <h2>Small Text</h2>
-                        <label for="smallFont">Choose small text font:</label>
-                        <select id="smallFont" onchange="updateFont('smallSample', this.value)">
-                        <option value="Open Sans, sans-serif">Open Sans</option>
-                        <option value="Inter, sans-serif">Inter</option>
-                        <option value="Nunito, sans-serif">Nunito</option>
-                        </select>
-                    </div>
-                    <div class="font-display" id="smallSample" style="font-size:13px;">
-                        Small text example : Used for captions and footnotes.
-                    </div>
-                    <p class="note">Font size: 13px | Font weight: 400</p>
-                    </div>
-
-                    <!-- SYMBOLS AREA -->
-                    <div class="font-area symbols-section">
-                    <div class="font-header">
-                        <h2>Symbols</h2>
-                        <p>Common characters and icons</p>
-                    </div>
-                    <div class="font-display" id="symbolSample" style="font-size:28px;">
-                        <div>
-                        ! @ # $ % ^ & * ( ) _ + { } [ ] : ; " ' < > ? / © ™ ® € £ ¥
-                        </div>
-                        <div>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-heart"></i>
-                        <i class="fa-solid fa-envelope"></i>
-                        <i class="fa-solid fa-check"></i>
-                        <i class="fa-solid fa-user"></i>
-                        </div>
-                    </div>
-                    <p class="note">Symbols and Font Awesome icons demonstration.</p>
-                    </div>
-
+          <section class="grid" id="swatches">
+            <!-- Primary -->
+            <article class="swatch">
+              <div
+                class="chip"
+                style="
+                  background: var(--brand-primary);
+                  display: flex;
+                  align-items: flex-end;
+                  padding: 10px;
+                  color: white;
+                  font-weight: 600;
+                "
+              >
+                Primary<br /><small style="font-weight: 400; opacity: 0.9"
+                  >Brand / CTA</small
+                >
+              </div>
+              <div class="meta">
+                <div>
+                  <strong>#C41F1F</strong><br /><small>rgb(196,31,31)</small>
                 </div>
-            </section>
+                <div>
+                  <small
+                    >Usage: Primary buttons, highlights, important states</small
+                  >
+                </div>
+              </div>
+              <div class="examples">
+                <button class="btn">Primary CTA</button>
+                <div class="copy" data-code="#C41F1F">Copy HEX</div>
+              </div>
+              <pre>
+&lt;!-- CSS variable --&gt;
+                --brand-primary: #C41F1F;</pre
+              >
+            </article>
 
+            <!-- Secondary -->
+            <article class="swatch">
+              <div
+                class="chip"
+                style="
+                  background: var(--brand-secondary);
+                  color: white;
+                  display: flex;
+                  align-items: flex-end;
+                  padding: 10px;
+                  font-weight: 600;
+                "
+              >
+                Secondary<br /><small style="font-weight: 400; opacity: 0.9"
+                  >Navigation / Panels</small
+                >
+              </div>
+              <div class="meta">
+                <div>
+                  <strong>#0F172A</strong><br /><small>rgb(15,23,42)</small>
+                </div>
+                <div><small>Usage: Header, nav, dark cards</small></div>
+              </div>
+              <div class="examples">
+                <button class="btn secondary">Nav Button</button>
+                <div class="copy" data-code="#0F172A">Copy HEX</div>
+              </div>
+              <pre>
+&lt;!-- CSS variable --&gt;
+                --brand-secondary: #0F172A;</pre
+              >
+            </article>
 
+            <!-- Accent -->
+            <article class="swatch">
+              <div
+                class="chip"
+                style="
+                  background: var(--accent);
+                  display: flex;
+                  align-items: flex-end;
+                  padding: 10px;
+                  font-weight: 600;
+                "
+              >
+                Accent<br /><small style="font-weight: 400; opacity: 0.9"
+                  >Callouts / Accent</small
+                >
+              </div>
+              <div class="meta">
+                <div>
+                  <strong>#F2B705</strong><br /><small>rgb(242,183,5)</small>
+                </div>
+                <div>
+                  <small>Usage: accents, highlights, positive microcopy</small>
+                </div>
+              </div>
+              <div class="examples">
+                <div
+                  style="
+                    padding: 10px;
+                    border-radius: 8px;
+                    background: linear-gradient(90deg, var(--accent), #f7c94a);
+                    font-weight: 600;
+                  "
+                >
+                  Accent chip
+                </div>
+                <div class="copy" data-code="#F2B705">Copy HEX</div>
+              </div>
+              <pre>
+&lt;!-- CSS variable --&gt;
+                --accent: #F2B705;</pre
+              >
+            </article>
 
+            <!-- Muted / Text low -->
+            <article class="swatch">
+              <div
+                class="chip"
+                style="
+                  background: var(--muted);
+                  display: flex;
+                  align-items: flex-end;
+                  padding: 10px;
+                  color: white;
+                  font-weight: 600;
+                "
+              >
+                Muted / Secondary Text
+              </div>
+              <div class="meta">
+                <div>
+                  <strong>#6B7280</strong><br /><small>rgb(107,114,128)</small>
+                </div>
+                <div><small>Usage: secondary text, borders, hints</small></div>
+              </div>
+              <div class="examples">
+                <div
+                  style="
+                    padding: 8px;
+                    border-radius: 8px;
+                    background: rgba(11, 18, 32, 0.03);
+                  "
+                >
+                  Placeholder text
+                </div>
+                <div class="copy" data-code="#6B7280">Copy HEX</div>
+              </div>
+              <pre>
+&lt;!-- CSS variable --&gt;
+                --muted: #6B7280;</pre
+              >
+            </article>
 
-            <!----------------- LAYOUT SECTION ------------------->
+            <!-- Background -->
+            <article class="swatch">
+              <div
+                class="chip"
+                style="
+                  background: var(--bg);
+                  display: flex;
+                  align-items: flex-end;
+                  padding: 10px;
+                  font-weight: 600;
+                "
+              >
+                Background
+              </div>
+              <div class="meta">
+                <div>
+                  <strong>#F5F7FA</strong><br /><small>rgb(245,247,250)</small>
+                </div>
+                <div><small>Usage: page background, subtle panels</small></div>
+              </div>
+              <div class="examples">
+                <div
+                  style="
+                    padding: 10px;
+                    border-radius: 8px;
+                    background: var(--card);
+                    box-shadow: 0 6px 18px var(--glass);
+                  "
+                >
+                  Card preview
+                </div>
+                <div class="copy" data-code="#F5F7FA">Copy HEX</div>
+              </div>
+              <pre>
+&lt;!-- CSS variable --&gt;
+                --bg: #F5F7FA;</pre
+              >
+            </article>
 
+            <!-- Text High -->
+            <article class="swatch">
+              <div
+                class="chip"
+                style="
+                  background: linear-gradient(0deg, #0b1220, #0b1220);
+                  display: flex;
+                  align-items: flex-end;
+                  padding: 10px;
+                  color: white;
+                  font-weight: 600;
+                "
+              >
+                Text - High Contrast
+              </div>
+              <div class="meta">
+                <div>
+                  <strong>#0B1220</strong><br /><small>rgb(11,18,32)</small>
+                </div>
+                <div><small>Usage: main headings and body text</small></div>
+              </div>
+              <div class="examples">
+                <div style="font-weight: 700">Heading example</div>
+                <div class="copy" data-code="#0B1220">Copy HEX</div>
+              </div>
+              <pre>
+&lt;!-- CSS variable --&gt;
+                --text-high: #0B1220;</pre
+              >
+            </article>
 
+            <!-- Semantic colors -->
+            <article class="swatch">
+              <div
+                class="chip"
+                style="
+                  background: var(--success);
+                  display: flex;
+                  align-items: flex-end;
+                  padding: 10px;
+                  color: white;
+                  font-weight: 600;
+                "
+              >
+                Success
+              </div>
+              <div class="meta">
+                <div>
+                  <strong>#16A34A</strong><br /><small>rgb(22,163,74)</small>
+                </div>
+                <div><small>Usage: success badges, positive states</small></div>
+              </div>
+              <div class="examples">
+                <div
+                  style="
+                    padding: 8px;
+                    border-radius: 8px;
+                    background: rgba(22, 163, 74, 0.12);
+                    color: var(--success);
+                  "
+                >
+                  Success
+                </div>
+                <div class="copy" data-code="#16A34A">Copy HEX</div>
+              </div>
+              <pre>
+&lt;!-- CSS variable --&gt;
+                --success: #16A34A;</pre
+              >
+            </article>
 
+            <article class="swatch">
+              <div
+                class="chip"
+                style="
+                  background: var(--warning);
+                  display: flex;
+                  align-items: flex-end;
+                  padding: 10px;
+                  color: white;
+                  font-weight: 600;
+                "
+              >
+                Warning
+              </div>
+              <div class="meta">
+                <div>
+                  <strong>#F97316</strong><br /><small>rgb(249,115,22)</small>
+                </div>
+                <div><small>Usage: warnings, attention</small></div>
+              </div>
+              <div class="examples">
+                <div
+                  style="
+                    padding: 8px;
+                    border-radius: 8px;
+                    background: rgba(249, 115, 22, 0.12);
+                    color: var(--warning);
+                  "
+                >
+                  Warning
+                </div>
+                <div class="copy" data-code="#F97316">Copy HEX</div>
+              </div>
+              <pre>
+&lt;!-- CSS variable --&gt;
+                --warning: #F97316;</pre
+              >
+            </article>
 
-            <!----------------- COMPONENTS SECTION ----------------->
+            <article class="swatch">
+              <div
+                class="chip"
+                style="
+                  background: var(--danger);
+                  display: flex;
+                  align-items: flex-end;
+                  padding: 10px;
+                  color: white;
+                  font-weight: 600;
+                "
+              >
+                Danger / Error
+              </div>
+              <div class="meta">
+                <div>
+                  <strong>#DC2626</strong><br /><small>rgb(220,38,38)</small>
+                </div>
+                <div>
+                  <small>Usage: error states, destructive actions</small>
+                </div>
+              </div>
+              <div class="examples">
+                <div
+                  style="
+                    padding: 8px;
+                    border-radius: 8px;
+                    background: rgba(220, 38, 38, 0.12);
+                    color: var(--danger);
+                  "
+                >
+                  Error
+                </div>
+                <div class="copy" data-code="#DC2626">Copy HEX</div>
+              </div>
+              <pre>
+&lt;!-- CSS variable --&gt;
+                --danger: #DC2626;</pre
+              >
+            </article>
+          </section>
 
+          <section class="legend" aria-hidden>
+            <div class="item">
+              <div class="sw" style="background: var(--brand-primary)"></div>
+              <div>
+                <strong>Primary</strong>
+                <div style="font-size: 0.85rem; color: var(--text-low)">
+                  CTA, highlights
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="sw" style="background: var(--brand-secondary)"></div>
+              <div>
+                <strong>Secondary</strong>
+                <div style="font-size: 0.85rem; color: var(--text-low)">
+                  Navigation, dark panels
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="sw" style="background: var(--accent)"></div>
+              <div>
+                <strong>Accent</strong>
+                <div style="font-size: 0.85rem; color: var(--text-low)">
+                  Badges, microcopy
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="sw" style="background: var(--muted)"></div>
+              <div>
+                <strong>Muted</strong>
+                <div style="font-size: 0.85rem; color: var(--text-low)">
+                  Secondary text
+                </div>
+              </div>
+            </div>
+          </section>
 
+          <div class="controls">
+            <label for="themeSelect">Preview theme:</label>
+            <select id="themeSelect">
+              <option value="default">Default (light)</option>
+              <option value="dark">Dark</option>
+            </select>
+            <button id="copyAll" class="copy">Copy CSS variables</button>
+          </div>
 
+          <footer>
+            <strong>Notes / Accessibility</strong>
+            <ul>
+              <li>
+                Each color is provided as HEX and RGB — include these variables
+                in your project CSS.
+              </li>
+              <li>
+                Check contrast for any text placed on top of colored backgrounds
+                (WCAG AA recommended).
+              </li>
+              <li>
+                Usage examples show recommended contexts (buttons, navs,
+                badges). Modify shades for disabled states and hover
+                interactions.
+              </li>
+            </ul>
+          </footer>
+        </div>
+      </section>
 
+      <!-------------- TYPHOGRAPHY SECTION --------------->
+      <section id="typography" class="content-section">
+        <h1>Typography Pattern Library</h1>
+        <p>Select different font styles to preview them below</p>
 
+        <!-- HEADING AREA -->
+        <div class="container">
+          <div class="font-area heading-section">
+            <div class="font-header">
+              <h2>Heading Fonts</h2>
+              <label for="headingFont">Choose heading font:</label>
+              <select
+                id="headingFont"
+                onchange="updateFont('headingSample', this.value)"
+              >
+                <option value="Roboto, sans-serif">Roboto</option>
+                <option value="Open Sans, sans-serif">Open Sans</option>
+                <option value="Lato, sans-serif">Lato</option>
+              </select>
+            </div>
+            <div
+              class="font-display"
+              id="headingSample"
+              style="font-size: 32px; font-family: 'Roboto', sans-serif"
+            >
+              Heading Example : The quick brown fox jumps over the lazy dog
+            </div>
+            <p class="note">Font size: 32px | Font weight: 700</p>
+          </div>
 
-            <!--------------- DATA VISUALIZATION SECTION -------------->
+          <!-- PARAGRAPH AREA -->
+          <div class="font-area paragraph-section">
+            <div class="font-header">
+              <h2>Paragraph Fonts</h2>
+              <label for="paraFont">Choose paragraph font:</label>
+              <select
+                id="paraFont"
+                onchange="updateFont('paraSample', this.value)"
+              >
+                <option value="Open Sans, sans-serif">Open Sans</option>
+                <option value="Roboto Slab, serif">Roboto Slab</option>
+                <option value="Inter, sans-serif">Inter</option>
+              </select>
+            </div>
+            <div class="font-display" id="paraSample" style="font-size: 18px">
+              Paragraph Example : Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit.
+            </div>
+            <p class="note">Font size: 18px | Font weight: 400</p>
+          </div>
+
+          <!-- BUTTON TEXT AREA -->
+          <div class="font-area button-section">
+            <div class="font-header">
+              <h2>Button Text</h2>
+              <label for="btnFont">Choose button font:</label>
+              <select
+                id="btnFont"
+                onchange="updateFont('btnSample', this.value)"
+              >
+                <option value="Poppins, sans-serif">Poppins</option>
+                <option value="Montserrat, sans-serif">Montserrat</option>
+                <option value="Roboto, sans-serif">Roboto</option>
+              </select>
+            </div>
+            <div
+              class="font-display"
+              id="btnSample"
+              style="font-size: 16px; text-transform: uppercase"
+            >
+              BUTTON TEXT EXAMPLE
+            </div>
+            <p class="note">Font size: 16px | Font weight: 600 | Uppercase</p>
+          </div>
+
+          <!-- SMALL TEXT AREA -->
+          <div class="font-area smalltext-section">
+            <div class="font-header">
+              <h2>Small Text</h2>
+              <label for="smallFont">Choose small text font:</label>
+              <select
+                id="smallFont"
+                onchange="updateFont('smallSample', this.value)"
+              >
+                <option value="Open Sans, sans-serif">Open Sans</option>
+                <option value="Inter, sans-serif">Inter</option>
+                <option value="Nunito, sans-serif">Nunito</option>
+              </select>
+            </div>
+            <div class="font-display" id="smallSample" style="font-size: 13px">
+              Small text example : Used for captions and footnotes.
+            </div>
+            <p class="note">Font size: 13px | Font weight: 400</p>
+          </div>
+
+          <!-- SYMBOLS AREA -->
+          <div class="font-area symbols-section">
+            <div class="font-header">
+              <h2>Symbols</h2>
+              <p>Common characters and icons</p>
+            </div>
+            <div class="font-display" id="symbolSample" style="font-size: 28px">
+              <div>
+                ! @ # $ % ^ & * ( ) _ + { } [ ] : ; " ' < > ? / © ™ ® € £ ¥
+              </div>
+              <div>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-envelope"></i>
+                <i class="fa-solid fa-check"></i>
+                <i class="fa-solid fa-user"></i>
+              </div>
+            </div>
+            <p class="note">Symbols and Font Awesome icons demonstration.</p>
+          </div>
+        </div>
+      </section>
+
+      <!----------------- LAYOUT SECTION ------------------->
+
+      <!----------------- COMPONENTS SECTION ----------------->
+      <section id="components" class="content-section">
+        <main class="container">
+          <h1>UI Components Gallery</h1>
+
+          <section id="buttons" class="component-section">
+            <h2>Button</h2>
+            <p>
+              Used to trigger actions like submitting forms or opening dialogs.
+            </p>
+            <div class="example">
+              <button class="btn btn-primary">Primary Button</button>
+              <button class="btn btn-secondary">Secondary Button</button>
+              <button class="btn btn-success">Success Button</button>
+              <button class="btn btn-danger">Danger Button</button>
+            </div>
+          </section>
+
+          <section id="dropdown" class="component-section">
+            <h2>Dropdown</h2>
+            <p>Allows users to select one option from a list.</p>
+            <div class="example dropdown">
+              <select aria-label="Choose an option">
+                <option>Choose an option</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+              </select>
+            </div>
+          </section>
+
+          <section id="input" class="component-section">
+            <h2>Input Field</h2>
+            <p>Captures user input such as text, email, or password.</p>
+            <div class="example input-group">
+              <label for="text-input">Text Input</label>
+              <input
+                type="text"
+                id="text-input"
+                class="input-field"
+                placeholder="Enter your name"
+              />
+            </div>
+          </section>
+
+          <section id="card" class="component-section">
+            <h2>Card</h2>
+            <p>Displays content and actions on a single subject.</p>
+            <div class="example">
+              <div class="card">
+                <h3>Feature Card</h3>
+                <p>Card content goes here with details and information.</p>
+                <div class="card-actions">
+                  <button class="btn btn-primary">Learn More</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="modal" class="component-section">
+            <h2>Modal</h2>
+            <p>
+              Used for user interactions that require focus, such as
+              confirmation dialogs.
+            </p>
+            <div class="example">
+              <button
+                class="btn btn-primary modal-trigger"
+                onclick="openModal()"
+              >
+                Open Modal
+              </button>
+            </div>
+            <!-- Modal structure -->
+            <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+              <div
+                class="modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="modalTitle"
+              >
+                <h3 id="modalTitle">Confirmation Required</h3>
+                <p>Are you sure you want to proceed with this action?</p>
+                <div class="modal-actions">
+                  <button class="btn btn-danger" id="confirmBtn">
+                    Confirm
+                  </button>
+                  <button class="btn btn-secondary" onclick="closeModal()">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="tooltip" class="component-section">
+            <h2>Tooltip</h2>
+            <p>Displays helpful information when hovering over an element.</p>
+            <div class="example tooltip-container">
+              <button class="tooltip-trigger">Hover for Tooltip</button>
+              <span class="tooltip-text" role="tooltip"
+                >Helpful tooltip information!</span
+              >
+            </div>
+          </section>
         </main>
-        
 
+        <script>
+          // Modal open/close helpers
+          const modalOverlay = document.getElementById("modalOverlay");
+          function openModal() {
+            modalOverlay.style.display = "flex";
+            modalOverlay.setAttribute("aria-hidden", "false");
+            // focus first focusable element inside modal
+            const focusable = modalOverlay.querySelector("button");
+            if (focusable) focusable.focus();
+          }
+          function closeModal() {
+            modalOverlay.style.display = "none";
+            modalOverlay.setAttribute("aria-hidden", "true");
+          }
+          // close modal
+          modalOverlay.addEventListener("click", (e) => {
+            if (e.target === modalOverlay) closeModal();
+          });
 
-
-        <!-- FOOTER -->
-        <footer>
-            <p>&copy; 2025 Group 5 – Fanshawe College</p>
-        </footer>
-  
-      <!-- JAVASCRIPT -->
-      <script>
-        function showSection(sectionId, event) {
-            event.preventDefault(); 
-            // hide all sections
-            document.querySelectorAll(".content-section").forEach(section => {
-                section.classList.remove("active");
+          const confirmBtn = document.getElementById("confirmBtn");
+          if (confirmBtn) {
+            confirmBtn.addEventListener("click", () => {
+              alert("Confirmed");
+              closeModal();
             });
+          }
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeModal();
+          });
+        </script>
+      </section>
 
-            // show selected section
-            const selected = document.getElementById(sectionId);
-            if (selected) selected.classList.add("active");
-        }
+      <!--------------- DATA VISUALIZATION SECTION -------------->
+    </main>
 
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2025 Group 5 – Fanshawe College</p>
+    </footer>
 
-        // Typography 
-        function updateFont(elementId, fontValue) {
-            document.getElementById(elementId).style.fontFamily = fontValue;
-        }
-      </script>
-    </body>
+    <!-- JAVASCRIPT -->
+    <script>
+      function showSection(sectionId, event) {
+        event.preventDefault();
+        // hide all sections
+        document.querySelectorAll(".content-section").forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        // show selected section
+        const selected = document.getElementById(sectionId);
+        if (selected) selected.classList.add("active");
+      }
+
+      // Typography
+      function updateFont(elementId, fontValue) {
+        document.getElementById(elementId).style.fontFamily = fontValue;
+      }
+    </script>
+  </body>
 </html>
