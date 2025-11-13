@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UI Pattern Library - Home</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="main.css" />
     <!-- Google Fonts -->
     <link
@@ -834,6 +835,474 @@
       </section>
 
       <!--------------- DATA VISUALIZATION SECTION -------------->
+      <section id="data-visual" class="content-section">
+        <div class="container">
+          <h1 class="title" style="color: var(--text-high)">
+            Data visualization
+          </h1>
+
+          <!-- Responsive grid for the charts -->
+          <div class="chart-grid">
+            <!-- Bar Chart -->
+            <div class="chart-card">
+              <h2 class="chart-title" style="color: var(--text-low)">
+                Bar Chart
+              </h2>
+              <div id="bar-chart" class="chart-container"></div>
+            </div>
+
+            <!-- Line Chart -->
+            <div class="chart-card">
+              <h2 class="chart-title" style="color: var(--text-low)">
+                Line Chart
+              </h2>
+              <div id="line-chart" class="chart-container"></div>
+            </div>
+
+            <!-- Area Chart -->
+            <div class="chart-card">
+              <h2 class="chart-title" style="color: var(--text-low)">
+                Area Chart
+              </h2>
+              <div id="area-chart" class="chart-container"></div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="chart-card">
+              <h2 class="chart-title" style="color: var(--text-low)">
+                Pie Chart
+              </h2>
+              <div id="pie-chart" class="chart-container"></div>
+            </div>
+
+            <!-- Donut Chart -->
+            <div class="chart-card">
+              <h2 class="chart-title" style="color: var(--text-low)">
+                Donut Chart
+              </h2>
+              <div id="donut-chart" class="chart-container"></div>
+            </div>
+
+            <!-- Scatter Plot -->
+            <div class="chart-card">
+              <h2 class="chart-title" style="color: var(--text-low)">
+                Scatter Plot
+              </h2>
+              <div id="scatter-chart" class="chart-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          // Make chart drawing functions available globally
+          window.chartsInitialized = false;
+          window.chartDrawingFunctions = null;
+
+          window.initializeCharts = function() {
+            // Prevent multiple initializations
+            if (window.chartsInitialized) {
+              return;
+            }
+
+            // Check if data-visual section is visible
+            const dataVisualSection = document.getElementById("data-visual");
+            if (!dataVisualSection || !dataVisualSection.classList.contains("active")) {
+              return;
+            }
+
+            // Clear any existing charts
+            d3.selectAll(".chart-container svg").remove();
+
+            // --- Get Colors from CSS Variables ---
+            const styles = getComputedStyle(document.documentElement);
+            const brandPrimary = styles
+              .getPropertyValue("--brand-primary")
+              .trim();
+            const brandSecondary = styles
+              .getPropertyValue("--brand-secondary")
+              .trim();
+            const accent = styles.getPropertyValue("--accent").trim();
+            const muted = styles.getPropertyValue("--muted").trim();
+            const success = styles.getPropertyValue("--success").trim();
+            const warning = styles.getPropertyValue("--warning").trim();
+            const danger = styles.getPropertyValue("--danger").trim();
+            const textLow = styles.getPropertyValue("--text-low").trim();
+
+            // --- Sample Data ---
+            const simpleData = [
+              { label: "Jan", value: 12 },
+              { label: "Feb", value: 19 },
+              { label: "Mar", value: 3 },
+              { label: "Apr", value: 5 },
+              { label: "May", value: 2 },
+              { label: "Jun", value: 3 },
+            ];
+
+            const areaData = [
+              { label: "Jan", value: 5 },
+              { label: "Feb", value: 8 },
+              { label: "Mar", value: 15 },
+              { label: "Apr", value: 12 },
+              { label: "May", value: 19 },
+              { label: "Jun", value: 25 },
+            ];
+
+            const pieData = [
+              { label: "Red", value: 300, color: brandPrimary },
+              { label: "Gold", value: 150, color: accent },
+              { label: "Green", value: 100, color: success },
+              { label: "Navy", value: 50, color: brandSecondary },
+            ];
+
+            const donutData = [
+              { label: "Warning", value: 50, color: warning },
+              { label: "Danger", value: 25, color: danger },
+              { label: "Muted", value: 25, color: muted },
+            ];
+
+            const scatterData = [
+              { x: 20, y: 88 },
+              { x: 22, y: 92 },
+              { x: 25, y: 80 },
+              { x: 30, y: 95 },
+              { x: 31, y: 75 },
+              { x: 35, y: 82 },
+              { x: 40, y: 70 },
+              { x: 42, y: 78 },
+              { x: 45, y: 65 },
+              { x: 50, y: 72 },
+              { x: 55, y: 60 },
+              { x: 60, y: 68 },
+            ];
+
+            // --- Reusable D3 Setup ---
+            const getChartDims = (containerId) => {
+              const container = d3.select(containerId);
+              const width = container.node().getBoundingClientRect().width;
+              const height = 320; // from .chart-container
+              const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+              const innerWidth = width - margin.left - margin.right;
+              const innerHeight = height - margin.top - margin.bottom;
+              return {
+                container,
+                width,
+                height,
+                margin,
+                innerWidth,
+                innerHeight,
+              };
+            };
+
+            // --- 1. Bar Chart ---
+            const drawBarChart = () => {
+              const { container, margin, innerWidth, innerHeight } =
+                getChartDims("#bar-chart");
+
+              const svg = container
+                .append("svg")
+                .attr(
+                  "viewBox",
+                  `0 0 ${innerWidth + margin.left + margin.right} ${
+                    innerHeight + margin.top + margin.bottom
+                  }`
+                )
+                .append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+              const x = d3
+                .scaleBand()
+                .domain(simpleData.map((d) => d.label))
+                .range([0, innerWidth])
+                .padding(0.1);
+
+              const y = d3
+                .scaleLinear()
+                .domain([0, d3.max(simpleData, (d) => d.value)])
+                .range([innerHeight, 0]);
+
+              svg
+                .append("g")
+                .attr("class", "axis")
+                .attr("transform", `translate(0, ${innerHeight})`)
+                .call(d3.axisBottom(x));
+
+              svg.append("g").attr("class", "axis").call(d3.axisLeft(y));
+
+              svg
+                .selectAll(".bar")
+                .data(simpleData)
+                .enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("x", (d) => x(d.label))
+                .attr("y", (d) => y(d.value))
+                .attr("width", x.bandwidth())
+                .attr("height", (d) => innerHeight - y(d.value))
+                .attr("fill", brandPrimary);
+            };
+
+            // --- 2. Line Chart ---
+            const drawLineChart = () => {
+              const { container, margin, innerWidth, innerHeight } =
+                getChartDims("#line-chart");
+
+              const svg = container
+                .append("svg")
+                .attr(
+                  "viewBox",
+                  `0 0 ${innerWidth + margin.left + margin.right} ${
+                    innerHeight + margin.top + margin.bottom
+                  }`
+                )
+                .append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+              const x = d3
+                .scalePoint()
+                .domain(simpleData.map((d) => d.label))
+                .range([0, innerWidth]);
+
+              const y = d3
+                .scaleLinear()
+                .domain([0, d3.max(simpleData, (d) => d.value)])
+                .range([innerHeight, 0]);
+
+              svg
+                .append("g")
+                .attr("class", "axis")
+                .attr("transform", `translate(0, ${innerHeight})`)
+                .call(d3.axisBottom(x));
+
+              svg.append("g").attr("class", "axis").call(d3.axisLeft(y));
+
+              const line = d3
+                .line()
+                .x((d) => x(d.label))
+                .y((d) => y(d.value));
+
+              svg
+                .append("path")
+                .datum(simpleData)
+                .attr("fill", "none")
+                .attr("stroke", accent)
+                .attr("stroke-width", 2)
+                .attr("d", line);
+            };
+
+            // --- 3. Area Chart ---
+            const drawAreaChart = () => {
+              const { container, margin, innerWidth, innerHeight } =
+                getChartDims("#area-chart");
+
+              const svg = container
+                .append("svg")
+                .attr(
+                  "viewBox",
+                  `0 0 ${innerWidth + margin.left + margin.right} ${
+                    innerHeight + margin.top + margin.bottom
+                  }`
+                )
+                .append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+              const x = d3
+                .scalePoint()
+                .domain(areaData.map((d) => d.label))
+                .range([0, innerWidth]);
+
+              const y = d3
+                .scaleLinear()
+                .domain([0, d3.max(areaData, (d) => d.value)])
+                .range([innerHeight, 0]);
+
+              svg
+                .append("g")
+                .attr("class", "axis")
+                .attr("transform", `translate(0, ${innerHeight})`)
+                .call(d3.axisBottom(x));
+
+              svg.append("g").attr("class", "axis").call(d3.axisLeft(y));
+
+              const area = d3
+                .area()
+                .x((d) => x(d.label))
+                .y0(innerHeight)
+                .y1((d) => y(d.value))
+                .curve(d3.curveMonotoneX);
+
+              svg
+                .append("path")
+                .datum(areaData)
+                .attr("fill", success)
+                .attr("fill-opacity", 0.2)
+                .attr("stroke", success)
+                .attr("stroke-width", 2)
+                .attr("d", area);
+            };
+
+            // --- 4. Pie Chart ---
+            const drawPieChart = (containerId, data, innerRadiusFactor) => {
+              const { container, width, height, margin } =
+                getChartDims(containerId);
+              const radius =
+                Math.min(width, height) / 2 -
+                Math.max(margin.top, margin.right);
+              const innerRadius = radius * (innerRadiusFactor || 0);
+
+              const svg = container
+                .append("svg")
+                .attr("viewBox", `0 0 ${width} ${height}`)
+                .append("g")
+                .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+              const color = d3
+                .scaleOrdinal()
+                .domain(data.map((d) => d.label))
+                .range(data.map((d) => d.color));
+
+              const pie = d3
+                .pie()
+                .value((d) => d.value)
+                .sort(null);
+
+              const arc = d3.arc().innerRadius(innerRadius).outerRadius(radius);
+
+              const arcs = svg
+                .selectAll(".arc")
+                .data(pie(data))
+                .enter()
+                .append("g")
+                .attr("class", "arc");
+
+              arcs
+                .append("path")
+                .attr("d", arc)
+                .attr("fill", (d) => color(d.data.label));
+            };
+
+            // --- 6. Scatter Plot ---
+            const drawScatterPlot = () => {
+              const { container, margin, innerWidth, innerHeight } =
+                getChartDims("#scatter-chart");
+
+              const svg = container
+                .append("svg")
+                .attr(
+                  "viewBox",
+                  `0 0 ${innerWidth + margin.left + margin.right} ${
+                    innerHeight + margin.top + margin.bottom
+                  }`
+                )
+                .append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+              const x = d3
+                .scaleLinear()
+                .domain([0, d3.max(scatterData, (d) => d.x) + 5])
+                .range([0, innerWidth]);
+
+              const y = d3
+                .scaleLinear()
+                .domain([0, d3.max(scatterData, (d) => d.y) + 5])
+                .range([innerHeight, 0]);
+
+              // Add X axis
+              svg
+                .append("g")
+                .attr("class", "axis")
+                .attr("transform", `translate(0, ${innerHeight})`)
+                .call(d3.axisBottom(x));
+
+              // Add Y axis
+              svg.append("g").attr("class", "axis").call(d3.axisLeft(y));
+
+              // Add gridlines
+              svg
+                .append("g")
+                .attr("class", "gridline")
+                .call(d3.axisLeft(y).tickSize(-innerWidth).tickFormat(""));
+
+              svg
+                .append("g")
+                .attr("class", "gridline")
+                .attr("transform", `translate(0, ${innerHeight})`)
+                .call(d3.axisBottom(x).tickSize(-innerHeight).tickFormat(""));
+
+              // Add dots
+              svg
+                .append("g")
+                .selectAll("dot")
+                .data(scatterData)
+                .enter()
+                .append("circle")
+                .attr("cx", (d) => x(d.x))
+                .attr("cy", (d) => y(d.y))
+                .attr("r", 5)
+                .style("fill", brandPrimary);
+            };
+
+            // Store drawing functions for resize handler
+            window.chartDrawingFunctions = {
+              drawBarChart,
+              drawLineChart,
+              drawAreaChart,
+              drawPieChart,
+              drawScatterPlot,
+              pieData,
+              donutData,
+            };
+
+            // --- Draw all charts ---
+            drawBarChart();
+            drawLineChart();
+            drawAreaChart();
+            drawPieChart("#pie-chart", pieData, 0); // 0 innerRadius for Pie
+            drawPieChart("#donut-chart", donutData, 0.6); // 0.6 innerRadius for Donut
+            drawScatterPlot();
+
+            window.chartsInitialized = true;
+          };
+
+          // Initialize on DOMContentLoaded if section is already active
+          document.addEventListener("DOMContentLoaded", () => {
+            // Small delay to ensure DOM is fully ready
+            setTimeout(() => {
+              if (window.initializeCharts) {
+                window.initializeCharts();
+              }
+            }, 100);
+
+            // --- Redraw on resize (simple version) ---
+            window.addEventListener("resize", () => {
+              const dataVisualSection = document.getElementById("data-visual");
+              if (
+                dataVisualSection &&
+                dataVisualSection.classList.contains("active") &&
+                window.chartDrawingFunctions
+              ) {
+                // Clear all SVGs
+                d3.selectAll(".chart-container svg").remove();
+
+                // Redraw all
+                window.chartDrawingFunctions.drawBarChart();
+                window.chartDrawingFunctions.drawLineChart();
+                window.chartDrawingFunctions.drawAreaChart();
+                window.chartDrawingFunctions.drawPieChart(
+                  "#pie-chart",
+                  window.chartDrawingFunctions.pieData,
+                  0
+                );
+                window.chartDrawingFunctions.drawPieChart(
+                  "#donut-chart",
+                  window.chartDrawingFunctions.donutData,
+                  0.6
+                );
+                window.chartDrawingFunctions.drawScatterPlot();
+              }
+            });
+          });
+        </script>
+      </section>
     </main>
 
     <!-- FOOTER -->
@@ -853,6 +1322,20 @@
         // show selected section
         const selected = document.getElementById(sectionId);
         if (selected) selected.classList.add("active");
+
+        // If data-visual section is shown, initialize charts
+        if (sectionId === "data-visual") {
+          // Reset initialization flag so charts can be redrawn
+          if (typeof window.chartsInitialized !== "undefined") {
+            window.chartsInitialized = false;
+          }
+          // Small delay to ensure section is visible before drawing
+          setTimeout(() => {
+            if (typeof window.initializeCharts === "function") {
+              window.initializeCharts();
+            }
+          }, 50);
+        }
       }
 
       // Typography
