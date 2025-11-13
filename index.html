@@ -619,7 +619,83 @@
       </section>
 
       <!----------------- LAYOUT SECTION ------------------->
+      <section id="layouts" class="content-section">
+        <a class="skip-link" href="layouts.css">Skip to content</a>
 
+    <header class="global-header">
+        <h1>Layout and Grid</h1>
+        <p>Responsive layout patterns for project 1</p>
+    </header>
+   <main id="main">
+    <section id="layout-2col" class="layout-section">
+      <h2>2-Column Layout</h2>
+      <p class="notes">
+        Uses <code>.grid-2</code> (CSS Grid).  
+        Switches to a single column below 768 px.  
+        Gap = 2 rem; max-width = 75 rem, centered.
+      </p>
+
+      <div class="demo-area">
+        <div class="grid-2">
+          <div class="demo-box">Left column</div>
+          <div class="demo-box">Right column</div>
+        </div>
+      </div>
+    </section>
+    <section id="layout-3col" class="layout-section">
+        <h2>3-Column Layout</h2>
+        <p class="notes">
+            Uses <code>.grid-3</code>. 
+            Tablet: 2 columns (auto-fit).  
+            Mobile: 1 column.
+        </p>
+    
+        <div class="demo-area">
+            <div class="grid-3">
+            <div class="demo-box">Card 1</div>
+            <div class="demo-box">Card 2</div>
+            <div class="demo-box">Card 3</div>
+            </div>
+        </div>
+    </section>
+    <section id="layout-header-content" class="layout-section">
+      <h2>Header and Content</h2>
+      <p class="notes">
+        Full-width hero banner followed by centered content block.  
+        Content has max-width 60 rem for readability.
+      </p>
+
+      <div class="demo-area">
+        <header class="demo-hero">
+          <h3>Hero / Header area</h3>
+        </header>
+        <div class="content-box">
+          <p>This content block stays centered and never exceeds 60 rem.</p>
+        </div>
+      </div>
+    </section>
+    <section id="layout-sidebar" class="layout-section">
+        <h2>Sidebar Layout</h2>
+        <p class="notes">
+        Uses <code>.with-sidebar</code> flexbox utility.  
+        Sidebar width = 18 rem; main area takes remaining space.  
+        Stacks vertically on screens ≤ 768 px.
+      </p>
+    
+       <div class="demo-area">
+        <div class="with-sidebar">
+          <aside class="sidebar demo-box">Sidebar</aside>
+          <main class="main-content demo-box">Main content</main>
+        </div>
+      </div>
+      </section>
+    </main>
+      </section>
+
+
+
+
+      
       <!----------------- COMPONENTS SECTION ----------------->
       <section id="components" class="content-section">
         <main class="container">

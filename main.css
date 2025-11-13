@@ -377,7 +377,137 @@ body {
   color: #0077ff;
 }
 
-/* ------------- Component SECTION --------------------- */
+/* ------------- LAYOUTS SECTION ----------------------*/
+#layouts {
+    --gap: 2rem;
+    --max-width: 75rem;        
+    --content-width: 60rem;    
+    --sidebar-width: 18rem;    
+    --corner: 8px;
+    --gray-light: #f5f5f5;
+    --gray-mid: #767676;
+    --accent: #0077ff;
+    --text: #222;
+    --font: "Inter", system-ui, sans-serif;
+  }
+  
+  #layouts *,
+  #layouts *::before,
+  #layouts *::after { box-sizing: border-box; }
+  
+  #layouts body {
+    margin: 0;
+    font-family: var(--font);
+    line-height: 1.5;
+    color: var(--text);
+    background: #fff;
+  }
+  
+  /* ---------- GLOBAL HEADER / FOOTER ---------- */
+  #layouts .global-header,
+  #layouts .global-footer {
+    background: var(--gray-light);
+    padding: 2rem var(--gap);
+    text-align: center;
+  }
+  #layouts .global-header h1 { margin: 0 0 .25em; }
+  #layouts .global-footer { font-size: .875rem; color: var(--gray-mid); }
+  
+  /* ---------- SKIP LINK ---------- */
+  #layouts .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--accent);
+    color: #fff;
+    padding: .5rem 1rem;
+    border-radius: var(--corner);
+    z-index: 100;
+  }
+  #layouts .skip-link:focus { top: 6px; }
+  
+  /* ---------- MAIN WRAPPER ---------- */
+  #layouts #main {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding: var(--gap);
+  }
+  
+  /* ---------- SECTIONS ---------- */
+  #layouts .layout-section { margin-bottom: 4rem; }
+  #layouts .layout-section h2 { margin-top: 0; }
+  #layouts .notes {
+    margin: .5rem 0 1.5rem;
+    color: var(--gray-mid);
+    font-size: .9rem;
+  }
+  #layouts code {
+    background: var(--gray-light);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: .875em;
+  }
+  
+  /* ---------- DEMO BOX  ---------- */
+  #layouts .demo-box {
+    background: var(--gray-light);
+    border: 2px dashed var(--gray-mid);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-radius: var(--corner);
+  }
+  
+  /* ---------- 2-COLUMN GRID ---------- */
+  #layouts .grid-2 {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+  
+  /* ---------- 3-COLUMN GRID ---------- */
+  #layouts .grid-3 {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  
+  /* ---------- HEADER + CONTENT ---------- */
+  #layouts .demo-hero {
+    background: var(--accent);
+    color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: var(--corner) var(--corner) 0 0;
+  }
+  #layouts .content-box {
+    max-width: var(--content-width);
+    margin-inline: auto;
+    padding: 2rem;
+    background: var(--gray-light);
+    border-radius: 0 0 var(--corner) var(--corner);
+  }
+  
+  /* ---------- SIDEBAR LAYOUT  ---------- */
+  #layouts .with-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+  }
+  #layouts .with-sidebar > .sidebar {
+    flex-basis: var(--sidebar-width);
+    flex-grow: 1;
+  }
+  #layouts .with-sidebar > .main-content {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 60%; 
+  }
+
+
+/* ------------- COMPONENTS SECTION --------------------- */
 
 #components, #data-visual {
   /* Core palette (example for a dashboard brand) */
