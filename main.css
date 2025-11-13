@@ -1,3 +1,23 @@
+:root {
+  --bg: #f9fafb;
+  --card: #ffffff;
+  --text-high: #111827;
+  --text-low: #6b7280;
+  --muted: #d1d5db;
+  --glass: #e5e7eb;
+  --brand-primary: #2563eb;
+  --brand-secondary: #1e40af;
+  --accent: #f59e0b;
+  --success: #10b981;
+  --warning: #facc15;
+  --danger: #ef4444;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+#data-visual .font-sans {
+  font-family: "Inter", sans-serif;
+}
+
 /* --------------------------- HOME PAGE ------------------------*/
 
 * {
@@ -359,7 +379,7 @@ body {
 
 /* ------------- Component SECTION --------------------- */
 
-#components {
+#components, #data-visual {
   /* Core palette (example for a dashboard brand) */
   --brand-primary: #c41f1f; /* strong red */
   --brand-secondary: #0f172a; /* dark navy */
@@ -526,3 +546,93 @@ body {
     align-items: flex-start;
   }
 }
+
+/*/ ------------- Data Visualization SECTION --------------------- */
+
+
+#data-visual {
+  background-color: var(--bg);
+  color: var(--text-high);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Helper class for card backgrounds */
+#data-visual .chart-card {
+  background-color: var(--card);
+  padding: 1rem; /* p-4 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+
+
+
+
+/* Page Layout Styles */
+#data-visual .container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  box-sizing: border-box; 
+}
+
+#data-visual .title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+#data-visual .chart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* gap-6 */
+}
+
+@media (min-width: 768px) {
+  #data-visual .chart-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+#data-visual .chart-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+/* D3-specific styles */
+#data-visual .chart-container {
+  width: 100%;
+  height: 320px; /* 20rem, matches h-80 */
+}
+
+#data-visual .chart-container svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Style D3 axes */
+#data-visual .axis path,
+#data-visual .axis line {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+#data-visual .axis text {
+  fill: var(--text-low);
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+}
+
+#data-visual .gridline {
+  stroke: var(--glass);
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
